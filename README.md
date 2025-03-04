@@ -1,4 +1,4 @@
-#To-Do List
+To-Do List
 
 Proyek ini adalah aplikasi To-Do List berbasis web yang dibuat menggunakan HTML, CSS, Tailwind CSS, dan JavaScript. Aplikasi ini memungkinkan pengguna untuk menambahkan, mengedit, menghapus, dan memfilter tugas berdasarkan statusnya.
 
