@@ -1,0 +1,105 @@
+.dark-mode {
+  background-color: #1a202c;
+  color: white;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .bg-white {
+  background-color: #2d3748 !important;
+}
+
+.dark-mode .bg-gray-100 {
+  background-color: #1a202c !important;
+}
+
+.dark-mode .text-gray-900 {
+  color: white !important;
+}
+
+.dark-mode h1,
+.dark-mode .filter-btn {
+  color: white !important;
+}
+
+.dark-mode .border-gray-300 {
+  border-color: #4a5568 !important;
+}
+
+.dark-mode .bg-blue-500 {
+  background-color: #ff9800 !important;
+}
+
+.dark-mode .hover\:bg-blue-600:hover {
+  background-color: #fb8c00 !important;
+}
+
+.dark-mode .bg-gray-200 {
+  background-color: #4a5568 !important;
+}
+
+.dark-mode .hover\:bg-gray-300:hover {
+  background-color: #718096 !important;
+}
+
+.show {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.hide {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.card {
+  max-height: 420px;
+}
+
+.card-2 {
+  max-height: 420px;
+  overflow-y: auto;
+}
+
+.card-2::-webkit-scrollbar {
+  width: 8px;
+}
+
+.card-2::-webkit-scrollbar-track {
+  background: #2d3748;
+  border-radius: 10px;
+}
+
+.card-2::-webkit-scrollbar-thumb {
+  background: #4a90e2;
+  border-radius: 10px;
+  transition: background 0.3s;
+}
+
+.card-2::-webkit-scrollbar-thumb:hover {
+  background: #357abd;
+}
+
+.task-item {
+  cursor: grab;
+  transition: background 0.3s ease;
+}
+
+.task-item:active {
+  cursor: grabbing;
+}
+
+.task-item.dragging {
+  opacity: 0.5;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+#editModal.show .max-w-md {
+  opacity: 1;
+  transform: scale(1);
+}
+#editModal.hide .max-w-md {
+  opacity: 0;
+  transform: scale(0.95);
+}
