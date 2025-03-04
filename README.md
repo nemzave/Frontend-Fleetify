@@ -24,4 +24,5 @@ Proyek ini adalah aplikasi To-Do List berbasis web yang dibuat menggunakan HTML,
 - JavaScript -> Untuk mengelola interaksi pengguna dan tugas.
 
 📜 Lisensi
+
 Proyek ini dibuat sebagai tantangan untuk Frontend Developer Challenge Test dan dapat digunakan secara bebas oleh siapa saja.
