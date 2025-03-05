@@ -39,26 +39,30 @@ document.addEventListener("DOMContentLoaded", () => {
                 ? "bg-gray-700 text-white"
                 : "bg-gray-300 text-gray-900"
             }`;
-      li.setAttribute("draggable", "true"); 
-      li.dataset.index = index; 
+      li.setAttribute("draggable", "true");
+      li.dataset.index = index;
       li.innerHTML = `
-            <div class="${
-              task.status === "completed" ? "line-through text-gray-400" : ""
-            }">
-                <h3 class="font-bold break-words w-60">${task.title}</h3>
-                <p class="text-sm break-words w-60">${task.desc}</p>
-            </div>
-            <div class="flex gap-2">
-                <button class="complete-btn bg-green-500 text-white px-3 py-2 rounded" data-id="${
-                  task.id
-                }">✔</button>
-                <button class="edit-btn bg-yellow-500 text-white px-3 py-2 rounded" data-id="${
-                  task.id
-                }">✏</button>
-                <button class="delete-btn bg-red-500 text-white px-3 py-2 rounded" data-id="${
-                  task.id
-                }">🗑</button>
-            </div>
+     <div class="flex flex-col sm:flex-row sm:justify-between w-full">
+    <!-- Teks -->
+    <div class="${
+      task.status === "completed" ? "line-through text-gray-400" : ""
+    }">
+        <h3 class="font-bold break-words w-60">${task.title}</h3>
+        <p class="text-sm break-words w-60">${task.desc}</p>
+    </div>
+    <div class="flex flex-wrap justify-start gap-2 w-full mt-2 sm:mt-0 sm:w-auto sm:justify-end">
+        <button class="complete-btn bg-green-500 text-white px-3 py-2 rounded w-[30%] sm:w-auto" data-id="${
+          task.id
+        }">✔</button>
+        <button class="edit-btn bg-yellow-500 text-white px-3 py-2 rounded w-[30%] sm:w-auto" data-id="${
+          task.id
+        }">✏</button>
+        <button class="delete-btn bg-red-500 text-white px-3 py-2 rounded w-[30%] sm:w-auto" data-id="${
+          task.id
+        }">🗑</button>
+    </div>
+</div>
+
         `;
 
       // Tambahkan event listener untuk drag and drop
@@ -70,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  let draggedItem = null; 
+  let draggedItem = null;
 
   function handleDragStart(event) {
     draggedItem = this;
@@ -180,9 +184,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const saveEditBtn = document.getElementById("saveEdit");
   const cancelEditBtn = document.getElementById("cancelEdit");
 
-  let editTaskId = null; 
+  let editTaskId = null;
 
-  
   taskList.addEventListener("click", function (e) {
     const id = e.target.dataset.id;
     if (!id) return;
@@ -190,15 +193,14 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.target.classList.contains("edit-btn")) {
       const task = tasks.find((task) => task.id == id);
       if (task) {
-        editTaskId = id; 
+        editTaskId = id;
         editTitleInput.value = task.title;
         editDescInput.value = task.desc;
-        editModal.classList.remove("hidden"); 
+        editModal.classList.remove("hidden");
       }
     }
   });
 
- 
   saveEditBtn.addEventListener("click", function () {
     if (editTaskId) {
       const task = tasks.find((task) => task.id == editTaskId);
@@ -210,14 +212,12 @@ document.addEventListener("DOMContentLoaded", () => {
         showNotification("Tugas berhasil diperbarui!", "success");
       }
     }
-    editModal.classList.add("hidden"); 
-  });
-
- 
-  cancelEditBtn.addEventListener("click", function () {
     editModal.classList.add("hidden");
   });
 
+  cancelEditBtn.addEventListener("click", function () {
+    editModal.classList.add("hidden");
+  });
 
   filterButtons.forEach((button) => {
     button.addEventListener("click", () => {
@@ -234,9 +234,9 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", function () {
   const toggleDarkModeBtn = document.getElementById("toggleDarkMode");
   const body = document.body;
-  const cards = document.querySelectorAll(".card"); 
-  const inputs = document.querySelectorAll("input, textarea"); 
-  const taskItems = document.querySelectorAll(".task-item"); 
+  const cards = document.querySelectorAll(".card");
+  const inputs = document.querySelectorAll("input, textarea");
+  const taskItems = document.querySelectorAll(".task-item");
 
   function applyLightMode() {
     body.classList.replace("bg-gray-900", "bg-gray-100");
@@ -263,7 +263,7 @@ document.addEventListener("DOMContentLoaded", function () {
       "hover:bg-gray-600",
       "hover:bg-yellow-400"
     );
-    toggleDarkModeBtn.textContent = "☀️"; 
+    toggleDarkModeBtn.textContent = "☀️";
 
     localStorage.setItem("theme", "light");
   }
@@ -288,18 +288,16 @@ document.addEventListener("DOMContentLoaded", function () {
       task.classList.replace("text-gray-900", "text-white");
     });
 
-
     toggleDarkModeBtn.classList.replace("bg-yellow-300", "bg-gray-700");
     toggleDarkModeBtn.classList.replace(
       "hover:bg-yellow-400",
       "hover:bg-gray-600"
     );
-    toggleDarkModeBtn.textContent = "🌙"; 
+    toggleDarkModeBtn.textContent = "🌙";
 
     localStorage.setItem("theme", "dark");
   }
 
-  
   if (localStorage.getItem("theme") === "light") {
     applyLightMode();
   } else {
